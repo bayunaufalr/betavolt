@@ -5,6 +5,10 @@
  */
 
 const CONFIG = {
+  // Ganti kredensial berikut dengan USER ID dan kata sandi yang kamu berikan kepada penerima.
+  // Catatan: login ini hanya gerbang permainan, bukan sistem keamanan sungguhan.
+  loginUsername: "V013",
+  loginPassword: "NightSignal18",
   recipientName: "Kamu yang istimewa", // Ganti dengan nama panggilan temanmu.
   senderName: "Seseorang yang mendoakanmu", // Ganti dengan namamu atau panggilanmu.
   birthdayIntro: "Hari ini, semesta punya satu alasan lagi untuk merayakan keberadaanmu.",
@@ -32,34 +36,44 @@ const PUZZLES = [
     type: "riddle",
     number: "RINTANGAN 01 / OBSERVASI",
     title: "Aku selalu mengikuti.",
-    description: "Petunjuk pertama tidak butuh teknologi canggih. Cukup perhatikan sesuatu yang mungkin pernah kamu lihat setiap hari.",
-    question: "Aku mengikutimu saat ada cahaya, meniru setiap gerakanmu, tetapi tak bisa disentuh. Saat gelap datang, aku menghilang. Siapakah aku?",
+    description: "Petunjuk pertama tidak membutuhkan teknologi canggih. Perhatikan sesuatu yang mungkin pernah kamu lihat setiap hari.",
+    question: "Aku muncul saat cahaya hadir. Aku meniru gerakmu tanpa suara, selalu berada dekatmu, tetapi tak pernah bisa disentuh. Saat gelap menyelimuti tempat ini, aku menghilang. Apakah aku?",
     placeholder: "Tulis jawabanmu di sini...",
-    hint: "Petunjuk: benda ini sering terlihat di tanah atau dinding ketika ada cahaya.",
+    hint: "Petunjuk: kamu bisa melihatku di tanah atau dinding ketika ada cahaya yang terhalang oleh tubuh atau benda.",
     answers: ["bayangan", "bayang bayang", "shadow"]
   },
   {
     type: "cipher",
     number: "RINTANGAN 02 / DEKRIPSI",
     title: "Sinyal yang bergeser.",
-    description: "Seseorang menggeser setiap huruf tiga langkah ke depan dalam alfabet. Untuk membaca pesan aslinya, geser tiap huruf tiga langkah ke belakang.",
-    question: "UDKDVLD",
-    placeholder: "Apa kata aslinya?",
-    hint: "Petunjuk: U menjadi R, D menjadi A. Terapkan aturan yang sama ke semua huruf.",
-    answers: ["rahasia", "rahasia."]
+    description: "Pesan ini dienkripsi menggunakan Caesar Cipher dengan shift +18: setiap huruf digeser 18 posisi maju dalam alfabet. Untuk memecahkannya, balikkan pergeseran tersebut 18 posisi ke belakang. Alfabet akan berputar kembali setelah Z.",
+    question: "DSFBMLCSF",
+    placeholder: "Ketik kata yang berhasil dipecahkan...",
+    hint: "Petunjuk: ketika pesan dibuat, L bergeser menjadi D. Untuk memecahkan kode, geser D kembali 18 posisi ke belakang. Terapkan aturan yang sama pada semua huruf.",
+    answers: ["lanjutkan", "lanjut kan"]
+  },
+  {
+    type: "riddle",
+    number: "RINTANGAN 03 / BIOLOGI",
+    title: "Penghuni setelah senja.",
+    description: "Catatan observasi berikutnya menggambarkan makhluk malam. Perhatikan petunjuk biologinya, bukan hanya waktunya muncul.",
+    question: "Aku adalah mamalia yang dapat terbang aktif. Aku sering beristirahat dengan posisi kepala di bawah, aktif pada malam hari, dan menggunakan ekolokasi untuk membantu bernavigasi. Hewan apakah aku?",
+    placeholder: "Nama hewannya...",
+    hint: "Petunjuk: namaku terdiri dari tiga suku kata dan sering dikaitkan dengan kelelawar yang bergelantungan di gua.",
+    answers: ["kelelawar", "bat", "kalong"]
   },
   {
     type: "choice",
-    number: "RINTANGAN 03 / PILIHAN CERDAS",
-    title: "Pilih jalan yang aman.",
-    description: "Kamu menemukan tiga pintu untuk mencapai ruang terakhir. Hanya satu yang masuk akal untuk dipilih.",
-    question: "Pintu pertama dipenuhi api. Pintu kedua dijaga robot yang langsung menangkap penyusup. Pintu ketiga menyimpan singa yang tidak makan selama tiga tahun. Pintu mana yang paling aman?",
+    number: "RINTANGAN 04 / PILIH PINTU",
+    title: "Tiga pintu, tiga respons.",
+    description: "Ketiga petunjuk sebelumnya membentuk satu rangkaian. Pilih pintu dengan simbol yang paling selaras dengan jejak yang kamu temukan.",
+    question: "Di hadapanmu ada tiga pintu: satu dengan simbol matahari, satu dengan gelombang suara, dan satu dengan siluet sayap di bawah bulan. Pintu mana yang paling tepat untuk melanjutkan perjalanan?",
     choices: [
-      { key: "A", text: "Pintu pertama, karena bisa berlari melewati api.", correct: false },
-      { key: "B", text: "Pintu kedua, karena mungkin robotnya sedang tidur.", correct: false },
-      { key: "C", text: "Pintu ketiga, karena singanya sudah lama tidak makan.", correct: true }
+      { key: "A", text: "PINTU FAJAR — simbol matahari", correct: false, feedback: "Pintu Fajar memancarkan cahaya yang menyilaukan. Petunjukmu belum mengarah ke siang hari. Coba hubungkan kembali tanda-tanda sebelumnya." },
+      { key: "B", text: "PINTU GEMA — simbol gelombang suara", correct: false, feedback: "Pintu Gema membalas dengan dengungan, tetapi tetap terkunci. Suara memang sebuah petunjuk, namun bukan simbol yang paling lengkap untuk rangkaian ini." },
+      { key: "C", text: "PINTU SENYAP — siluet sayap di bawah bulan", correct: true, feedback: "Pintu Senyap mengenali pola yang kamu ikuti. Simbol sayap dan malam menyatu dengan petunjuk sebelumnya. Jalur terakhir terbuka." }
     ],
-    hint: "Petunjuk: gunakan logika, bukan keberanian. Pikirkan apakah sesuatu bisa bertahan selama itu tanpa makan."
+    hint: "Petunjuk: ingat jawaban teka-teki ketiga. Pilih lambang yang paling dekat dengan hewan yang kamu identifikasi."
   }
 ];
 
@@ -76,6 +90,7 @@ const state = {
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
 
+const loginView = $("#loginView");
 const landingView = $("#landingView");
 const gameView = $("#gameView");
 const vaultView = $("#vaultView");
@@ -116,6 +131,8 @@ function createStarfield() {
 }
 
 function bindEvents() {
+  $("#loginForm").addEventListener("submit", verifyCredentials);
+  $("#togglePasswordBtn").addEventListener("click", togglePasswordVisibility);
   $("#beginBtn").addEventListener("click", startJourney);
   $("#openVaultBtn").addEventListener("click", revealBirthday);
   $("#giftBoxBtn").addEventListener("click", openGift);
@@ -129,24 +146,62 @@ function bindEvents() {
   });
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeMemoryModal();
-    if (event.key === "Enter" && !gameView.classList.contains("hidden")) {
-      const input = $("#answerInput");
-      if (input && document.activeElement === input) checkTextAnswer();
-    }
   });
   window.addEventListener("resize", resizeConfettiCanvas);
 }
 
 function showScreen(screenToShow) {
-  [landingView, gameView, vaultView, birthdayView].forEach((screen) => screen.classList.add("hidden"));
+  [loginView, landingView, gameView, vaultView, birthdayView].forEach((screen) => screen.classList.add("hidden"));
   screenToShow.classList.remove("hidden");
   window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function verifyCredentials(event) {
+  event.preventDefault();
+  const username = $("#usernameInput").value.trim().toLocaleLowerCase("id-ID");
+  const password = $("#passwordInput").value.trim();
+  const expectedUsername = CONFIG.loginUsername.trim().toLocaleLowerCase("id-ID");
+  const expectedPassword = CONFIG.loginPassword;
+  const errorMessage = $("#loginError");
+
+  if (username === expectedUsername && password === expectedPassword) {
+    errorMessage.classList.add("hidden");
+    $("#loginForm").classList.remove("shake");
+    statusText.textContent = "IDENTITY VERIFIED";
+    $("#passwordInput").value = "";
+    $("#passwordInput").type = "password";
+    $("#togglePasswordBtn").textContent = "LIHAT";
+    $("#togglePasswordBtn").setAttribute("aria-label", "Tampilkan kata sandi");
+    $("#togglePasswordBtn").setAttribute("aria-pressed", "false");
+    showScreen(landingView);
+    playTone(620, 0.1, 0.03);
+    showToast("Kredensial diterima. Identitas SUBJECT V-013 terkonfirmasi.");
+  } else {
+    errorMessage.classList.remove("hidden");
+    const form = $("#loginForm");
+    form.classList.remove("shake");
+    void form.offsetWidth;
+    form.classList.add("shake");
+    $("#passwordInput").value = "";
+    $("#passwordInput").focus();
+    playTone(190, 0.11, 0.022);
+  }
+}
+
+function togglePasswordVisibility() {
+  const passwordInput = $("#passwordInput");
+  const isHidden = passwordInput.type === "password";
+  passwordInput.type = isHidden ? "text" : "password";
+  $("#togglePasswordBtn").textContent = isHidden ? "SEMBUNYIKAN" : "LIHAT";
+  $("#togglePasswordBtn").setAttribute("aria-label", isHidden ? "Sembunyikan kata sandi" : "Tampilkan kata sandi");
+  $("#togglePasswordBtn").setAttribute("aria-pressed", String(isHidden));
+  passwordInput.focus();
 }
 
 function startJourney() {
   state.stage = 0;
   state.busy = false;
-  statusText.textContent = "SIGNAL CONNECTED";
+  statusText.textContent = "ENCRYPTED CHANNEL OPEN";
   updateProgress(0);
   renderPuzzle();
   showScreen(gameView);
@@ -161,7 +216,7 @@ function renderPuzzle() {
     <p class="puzzle-number">${escapeHTML(puzzle.number)}</p>
     <h3 class="puzzle-title">${escapeHTML(puzzle.title)}</h3>
     <p class="puzzle-description">${escapeHTML(puzzle.description)}</p>
-    ${puzzle.type === "cipher" ? `<div class="riddle-quote cipher-quote" aria-label="Kode rahasia"><span class="cipher-prefix">DECODE //</span><br><strong>${escapeHTML(puzzle.question)}</strong><span class="cipher-caption">CAESAR SHIFT · −3</span></div>` : `<blockquote class="riddle-quote">${escapeHTML(puzzle.question)}</blockquote>`}
+    ${puzzle.type === "cipher" ? `<div class="riddle-quote cipher-quote" aria-label="Kode rahasia"><span class="cipher-prefix">DECODE //</span><br><strong>${escapeHTML(puzzle.question)}</strong><span class="cipher-caption">CAESAR SHIFT · +18 ENCRYPTION</span></div>` : `<blockquote class="riddle-quote">${escapeHTML(puzzle.question)}</blockquote>`}
     ${puzzle.type === "choice" ? renderChoices(puzzle) : renderAnswerForm(puzzle)}
     <div class="hint-row"><button class="hint-button" id="hintBtn" type="button"><span aria-hidden="true">✦</span> Minta satu petunjuk</button><p class="hint-text hidden" id="hintText">${escapeHTML(puzzle.hint)}</p></div>
   `;
@@ -191,7 +246,7 @@ function renderAnswerForm(puzzle) {
 
 function renderChoices(puzzle) {
   return `<div class="choice-list">${puzzle.choices.map((choice) => `
-    <button class="choice-button" type="button" data-correct="${choice.correct}">
+    <button class="choice-button" type="button" data-correct="${choice.correct}" data-feedback="${escapeHTML(choice.feedback || "")}">
       <span class="choice-key">${escapeHTML(choice.key)}</span><span>${escapeHTML(choice.text)}</span>
     </button>
   `).join("")}</div>`;
@@ -217,21 +272,27 @@ function checkTextAnswer() {
     puzzleCard.classList.remove("shake");
     void puzzleCard.offsetWidth;
     puzzleCard.classList.add("shake");
-    showToast(state.stage === 0 ? "Belum tepat. Coba pikirkan benda yang mengikuti gerakanmu." : "Kode belum cocok. Ingat, tiap huruf bergeser tiga langkah ke belakang.");
+    const retryMessages = [
+      "Belum tepat. Cari sesuatu yang mengikuti gerakmu ketika ada cahaya.",
+      "Dekripsi belum cocok. Pesan ini dienkripsi dengan shift +18, jadi balikkan 18 langkah.",
+      "Belum tepat. Fokus pada mamalia yang aktif di malam hari dan menggunakan ekolokasi."
+    ];
+    showToast(retryMessages[state.stage] || "Jawaban belum cocok. Periksa lagi petunjuknya.");
     playTone(190, 0.11, 0.022);
   }
 }
 
 function checkChoice(isCorrect, selectedButton) {
   if (state.busy) return;
+  const feedback = selectedButton.dataset.feedback || "Pintu ini memberikan respons yang berbeda.";
   if (isCorrect) {
     selectedButton.classList.add("correct");
-    completeStage();
+    completeStage(feedback);
   } else {
     selectedButton.classList.remove("shake");
     void selectedButton.offsetWidth;
     selectedButton.classList.add("shake");
-    showToast("Jalur ini belum meyakinkan. Pikirkan apa yang mungkin terjadi setelah tiga tahun.");
+    showToast(feedback);
     playTone(190, 0.11, 0.022);
   }
 }
@@ -244,10 +305,16 @@ function toggleHint() {
   hintButton.innerHTML = isHidden ? "<span aria-hidden=\"true\">✦</span> Sembunyikan petunjuk" : "<span aria-hidden=\"true\">✦</span> Minta satu petunjuk";
 }
 
-function completeStage() {
+function completeStage(customMessage = "") {
   if (state.busy) return;
   state.busy = true;
-  showToast(["Jejak pertama ditemukan. Sinyal makin jelas.", "Kode berhasil dibaca. Kamu mulai memahami polanya.", "Pilihan tepat. Semua potongan kini terhubung."][state.stage]);
+  const stageMessages = [
+    "Jejak pertama ditemukan. Sinyal makin jelas.",
+    "Dekripsi berhasil. Pesan LANJUTKAN telah terbaca.",
+    "Identifikasi cocok. Catatan makhluk malam berhasil diverifikasi.",
+    "Pintu yang tepat merespons. Jalur terakhir terbuka."
+  ];
+  showToast(customMessage || stageMessages[state.stage] || "Tahap berhasil diselesaikan.");
   playTone(660, 0.08, 0.035);
   window.setTimeout(() => {
     state.stage += 1;
@@ -415,10 +482,16 @@ function replayJourney() {
   $("#giftScene").classList.remove("opened");
   $("#giftHint").textContent = "KETUK HADIAHNYA";
   document.title = "Silent Signal — Pesan Tersembunyi";
-  statusText.textContent = "SIGNAL STANDBY";
+  statusText.textContent = "ACCESS CONTROL ACTIVE";
+  $("#loginForm").reset();
+  $("#loginError").classList.add("hidden");
+  $("#passwordInput").type = "password";
+  $("#togglePasswordBtn").textContent = "LIHAT";
+  $("#togglePasswordBtn").setAttribute("aria-pressed", "false");
+  $("#togglePasswordBtn").setAttribute("aria-label", "Tampilkan kata sandi");
   stopConfetti();
   updateProgress(0);
-  showScreen(landingView);
+  showScreen(loginView);
 }
 
 function showToast(message) {

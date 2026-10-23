@@ -20,18 +20,52 @@
       <span class="brand-mark">S<span>.</span></span>
       <span class="brand-name">SILENT SIGNAL <small>PERSONAL TRANSMISSION</small></span>
     </a>
-    <div class="system-status"><span class="status-dot"></span><span id="systemStatus">SIGNAL STANDBY</span></div>
+    <div class="system-status"><span class="status-dot"></span><span id="systemStatus">ACCESS CONTROL ACTIVE</span></div>
   </header>
 
   <main id="top">
-    <section class="screen landing-screen" id="landingView" aria-labelledby="landingTitle">
+    <section class="screen login-screen" id="loginView" aria-labelledby="loginTitle">
+      <div class="login-panel">
+        <p class="eyebrow"><span class="eyebrow-line"></span> SECURE GATE <span class="eyebrow-muted">/ ACCESS REQUIRED</span></p>
+        <h1 class="login-title" id="loginTitle">Verifikasi<br><span class="gradient-text">identitas.</span></h1>
+        <p class="hero-description login-description">Sesi ini hanya tersedia untuk penerima kredensial. Masukkan USER ID dan ACCESS KEY yang sudah diberikan untuk melanjutkan.</p>
+        <form class="login-form" id="loginForm" autocomplete="off">
+          <label class="login-label" for="usernameInput">USER ID</label>
+          <input class="login-input" id="usernameInput" name="username" type="text" placeholder="Masukkan user ID" autocomplete="off" autocapitalize="none" spellcheck="false" required>
+          <label class="login-label" for="passwordInput">ACCESS KEY</label>
+          <div class="password-field">
+            <input class="login-input" id="passwordInput" name="password" type="password" placeholder="Masukkan access key" autocomplete="off" required>
+            <button class="password-toggle" id="togglePasswordBtn" type="button" aria-label="Tampilkan kata sandi" aria-pressed="false">LIHAT</button>
+          </div>
+          <p class="login-error hidden" id="loginError" role="alert">Kredensial tidak cocok. Periksa kembali USER ID dan ACCESS KEY.</p>
+          <button class="button button-primary login-submit" type="submit"><span>Verifikasi identitas</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+        </form>
+        <p class="login-footnote"><span class="tiny-lock" aria-hidden="true">◇</span> AUTHORIZED PERSONNEL ONLY</p>
+      </div>
+
+      <div class="login-side-art" aria-hidden="true">
+        <div class="login-halo"></div>
+        <div class="login-ring login-ring-outer"></div>
+        <div class="login-ring login-ring-mid"></div>
+        <div class="login-ring login-ring-inner"></div>
+        <div class="login-orbit-dot login-orbit-dot-a"></div>
+        <div class="login-orbit-dot login-orbit-dot-b"></div>
+        <div class="login-emblem"><span>V</span><i>013</i></div>
+        <div class="login-art-caption"><span>SUBJECT V-013</span><small>IDENTITY PENDING</small></div>
+        <div class="login-art-corner login-art-corner-a">ENCRYPTED<br>CHANNEL</div>
+        <div class="login-art-corner login-art-corner-b">AUTH // 01</div>
+      </div>
+      <div class="login-footer"><span>SECURE ACCESS PROTOCOL</span><span>SESSION 01 / PRIVATE CHANNEL</span></div>
+    </section>
+
+    <section class="screen landing-screen hidden" id="landingView" aria-labelledby="landingTitle">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="eyebrow-line"></span> TRANSMISSION 001 <span class="eyebrow-muted">/ ACCESS RESTRICTED</span></p>
-        <h1 id="landingTitle">Ada sesuatu yang<br><span class="gradient-text">tersembunyi.</span></h1>
-        <p class="hero-description">Sebuah pesan telah dikunci di tempat ini. Tidak ada peta, tidak ada petunjuk yang lengkap. Hanya beberapa jejak kecil yang menunggu untuk kamu pecahkan.</p>
+        <p class="eyebrow"><span class="eyebrow-line"></span> IDENTITY VERIFIED <span class="eyebrow-muted">/ ACCESS GRANTED</span></p>
+        <h1 id="landingTitle">Identitas telah<br><span class="gradient-text">terkonfirmasi.</span></h1>
+        <p class="hero-description">Kredensial diterima. SUBJECT V-013 telah terautentikasi. Empat rintangan kini aktif. Selesaikan setiap tahap untuk membuka kanal berikutnya.</p>
         <div class="hero-actions">
-          <button class="button button-primary" id="beginBtn" type="button"><span>Mulai penelusuran</span><span class="button-arrow" aria-hidden="true">↗</span></button>
-          <div class="micro-note"><span class="tiny-lock" aria-hidden="true">◇</span> 3 RINTANGAN <span class="micro-divider">/</span> 1 PESAN TERKUNCI</div>
+          <button class="button button-primary" id="beginBtn" type="button"><span>Jalankan protokol</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+          <div class="micro-note"><span class="tiny-lock" aria-hidden="true">◇</span> 4 RINTANGAN <span class="micro-divider">/</span> 1 PESAN TERKUNCI</div>
         </div>
       </div>
 
@@ -45,7 +79,7 @@
         <div class="signal-core"><div class="core-inner"><span class="core-glyph">?</span></div></div>
         <div class="signal-label label-top">UNKNOWN SOURCE <span>●</span></div>
         <div class="signal-label label-bottom">SIGNAL DETECTED <span>•••</span></div>
-        <div class="signal-coordinates">COORDINATE: UNKNOWN<br>ORIGIN: UNCLASSIFIED</div>
+        <div class="signal-coordinates">SUBJECT V-013<br>STATUS: VERIFIED</div>
       </div>
       <div class="landing-footer"><span>PRIVATE QUEST // NO SPOILERS</span><span class="scroll-cue">SCROLL TO EXPLORE <span>↓</span></span><span>EST. UNKNOWN</span></div>
     </section>
@@ -58,9 +92,9 @@
       </div>
 
       <div class="progress-wrap" aria-label="Kemajuan permainan">
-        <div class="progress-meta"><span id="progressLabel">RINTANGAN 01 / 03</span><span id="progressPercent">00%</span></div>
+        <div class="progress-meta"><span id="progressLabel">RINTANGAN 01 / 04</span><span id="progressPercent">00%</span></div>
         <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
-        <div class="progress-steps"><span class="step-dot active" data-step="0">01</span><span class="step-connector"></span><span class="step-dot" data-step="1">02</span><span class="step-connector"></span><span class="step-dot" data-step="2">03</span></div>
+        <div class="progress-steps"><span class="step-dot active" data-step="0">01</span><span class="step-connector"></span><span class="step-dot" data-step="1">02</span><span class="step-connector"></span><span class="step-dot" data-step="2">03</span><span class="step-connector"></span><span class="step-dot" data-step="3">04</span></div>
       </div>
 
       <article class="puzzle-card" id="puzzleCard" aria-live="polite"></article>
