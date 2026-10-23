@@ -1,0 +1,14 @@
+# File sementara sistem operasi
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Pengaturan editor lokal
+.vscode/
+.idea/
+
+# File sementara dan cadangan
+*.log
+*.tmp
+*.bak
+*~

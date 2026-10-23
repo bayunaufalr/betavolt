@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b16">
+  <meta name="description" content="Sebuah pesan rahasia menunggu untuk ditemukan.">
+  <title>Silent Signal — Pesan Tersembunyi</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="starfield" id="starfield" aria-hidden="true"></div>
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Silent Signal, kembali ke atas">
+      <span class="brand-mark">S<span>.</span></span>
+      <span class="brand-name">SILENT SIGNAL <small>PERSONAL TRANSMISSION</small></span>
+    </a>
+    <div class="system-status"><span class="status-dot"></span><span id="systemStatus">SIGNAL STANDBY</span></div>
+  </header>
+
+  <main id="top">
+    <section class="screen landing-screen" id="landingView" aria-labelledby="landingTitle">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> TRANSMISSION 001 <span class="eyebrow-muted">/ ACCESS RESTRICTED</span></p>
+        <h1 id="landingTitle">Ada sesuatu yang<br><span class="gradient-text">tersembunyi.</span></h1>
+        <p class="hero-description">Sebuah pesan telah dikunci di tempat ini. Tidak ada peta, tidak ada petunjuk yang lengkap. Hanya beberapa jejak kecil yang menunggu untuk kamu pecahkan.</p>
+        <div class="hero-actions">
+          <button class="button button-primary" id="beginBtn" type="button"><span>Mulai penelusuran</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+          <div class="micro-note"><span class="tiny-lock" aria-hidden="true">◇</span> 3 RINTANGAN <span class="micro-divider">/</span> 1 PESAN TERKUNCI</div>
+        </div>
+      </div>
+
+      <div class="signal-art" aria-label="Ilustrasi sinyal misterius">
+        <div class="orbit orbit-outer"></div>
+        <div class="orbit orbit-middle"></div>
+        <div class="orbit orbit-inner"></div>
+        <div class="orbit-node node-one"></div>
+        <div class="orbit-node node-two"></div>
+        <div class="orbit-node node-three"></div>
+        <div class="signal-core"><div class="core-inner"><span class="core-glyph">?</span></div></div>
+        <div class="signal-label label-top">UNKNOWN SOURCE <span>●</span></div>
+        <div class="signal-label label-bottom">SIGNAL DETECTED <span>•••</span></div>
+        <div class="signal-coordinates">07° 48' 12.0" S<br>110° 21' 54.0" E</div>
+      </div>
+      <div class="landing-footer"><span>PRIVATE QUEST // NO SPOILERS</span><span class="scroll-cue">SCROLL TO EXPLORE <span>↓</span></span><span>EST. UNKNOWN</span></div>
+    </section>
+
+    <section class="screen game-screen hidden" id="gameView" aria-labelledby="gameTitle">
+      <div class="section-heading">
+        <p class="eyebrow"><span class="eyebrow-line"></span> ENCRYPTED JOURNEY</p>
+        <h2 id="gameTitle">Ikuti jejaknya<span class="gradient-text">.</span></h2>
+        <p class="section-description">Setiap jawaban membuka potongan jalan berikutnya. Perhatikan detailnya.</p>
+      </div>
+
+      <div class="progress-wrap" aria-label="Kemajuan permainan">
+        <div class="progress-meta"><span id="progressLabel">RINTANGAN 01 / 03</span><span id="progressPercent">00%</span></div>
+        <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+        <div class="progress-steps"><span class="step-dot active" data-step="0">01</span><span class="step-connector"></span><span class="step-dot" data-step="1">02</span><span class="step-connector"></span><span class="step-dot" data-step="2">03</span></div>
+      </div>
+
+      <article class="puzzle-card" id="puzzleCard" aria-live="polite"></article>
+      <p class="game-footnote"><span class="footnote-sparkle">✦</span> Tidak perlu terburu-buru. Petunjuk selalu ada di sekitar pertanyaan.</p>
+    </section>
+
+    <section class="screen vault-screen hidden" id="vaultView" aria-labelledby="vaultTitle">
+      <div class="vault-emblem" aria-hidden="true"><span>✧</span></div>
+      <p class="eyebrow centered"><span class="eyebrow-line"></span> ALL SIGNALS ALIGNED <span class="eyebrow-line"></span></p>
+      <h2 id="vaultTitle">Jejaknya sudah lengkap<span class="gradient-text">.</span></h2>
+      <p class="vault-copy">Kamu berhasil melewati semua rintangan. Ada satu pesan terakhir yang belum dibuka. Sepertinya, pesan ini memang menunggu orang yang tepat untuk menemukannya.</p>
+      <div class="vault-lock"><span class="vault-lock-top"></span><span class="vault-lock-body">✦</span></div>
+      <button class="button button-primary" id="openVaultBtn" type="button"><span>Buka transmisi terakhir</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+      <p class="vault-caption">FINAL ENCRYPTION // READY TO DECODE</p>
+    </section>
+
+    <section class="screen birthday-screen hidden" id="birthdayView" aria-labelledby="birthdayTitle">
+      <div class="reveal-topline"><span>TRANSMISSION DECRYPTED</span><span class="reveal-topline-dot"></span><span>MESSAGE FOUND</span></div>
+      <div class="birthday-hero">
+        <div class="gift-scene" id="giftScene">
+          <div class="gift-glow"></div>
+          <div class="gift-spark spark-a">✦</div><div class="gift-spark spark-b">✧</div><div class="gift-spark spark-c">✦</div>
+          <button class="gift-box" id="giftBoxBtn" type="button" aria-label="Buka kotak hadiah">
+            <span class="gift-lid"><span class="gift-bow"></span></span>
+            <span class="gift-body"><span class="gift-ribbon"></span><span class="gift-ribbon-vertical"></span></span>
+          </button>
+          <p class="gift-hint" id="giftHint">KETUK HADIAHNYA</p>
+        </div>
+        <p class="eyebrow centered"><span class="eyebrow-line"></span> THE SECRET WAS YOU <span class="eyebrow-line"></span></p>
+        <p class="reveal-pretitle" id="revealPretitle">Untuk seseorang yang istimewa</p>
+        <h1 id="birthdayTitle">Selamat ulang<br><span class="gradient-text">tahun.</span></h1>
+        <p class="birthday-intro" id="birthdayIntro">Hari ini, semesta punya satu alasan lagi untuk merayakan keberadaanmu.</p>
+        <button class="button button-primary" id="readLetterBtn" type="button"><span>Baca pesan rahasia</span><span class="button-arrow" aria-hidden="true">↓</span></button>
+      </div>
+
+      <div class="birthday-content" id="birthdayContent">
+        <div class="content-divider"><span></span><span class="divider-star">✧</span><span></span></div>
+        <section class="letter-section" aria-labelledby="letterTitle">
+          <p class="eyebrow"><span class="eyebrow-line"></span> A NOTE FOR YOU</p>
+          <h2 id="letterTitle">Ada hal yang ingin<br>aku <span class="gradient-text">sampaikan.</span></h2>
+          <div class="letter-card">
+            <div class="letter-card-top"><span>PERSONAL LETTER</span><span>01 / 01</span></div>
+            <p class="letter-greeting" id="letterGreeting">Untuk kamu,</p>
+            <div class="letter-body" id="letterBody"></div>
+            <div class="letter-signature"><span>Dengan doa baik,</span><strong id="senderName">Seseorang yang mendoakanmu</strong></div>
+            <div class="letter-watermark" aria-hidden="true">S.</div>
+          </div>
+        </section>
+
+        <section class="wish-section" aria-labelledby="wishTitle">
+          <p class="eyebrow"><span class="eyebrow-line"></span> THREE LITTLE WISHES</p>
+          <h2 id="wishTitle">Semoga hal-hal baik<br><span class="gradient-text">menemukanmu.</span></h2>
+          <div class="wish-grid" id="wishGrid"></div>
+        </section>
+
+        <section class="memory-section" aria-labelledby="memoryTitle">
+          <div class="memory-heading">
+            <div><p class="eyebrow"><span class="eyebrow-line"></span> FRAGMENTS OF JOY</p><h2 id="memoryTitle">Potongan <span class="gradient-text">kenangan.</span></h2></div>
+            <p class="memory-side-note">Beberapa momen kecil<br>yang pantas disimpan.</p>
+          </div>
+          <div class="memory-grid" id="memoryGrid"></div>
+          <p class="memory-footnote">Ruang kecil untuk momen yang berarti. Foto bisa kamu tambahkan sebelum website dipublikasikan.</p>
+        </section>
+
+        <section class="closing-section">
+          <div class="closing-star" aria-hidden="true">✧</div>
+          <p class="eyebrow centered">END OF TRANSMISSION</p>
+          <h2>Jangan lupa bahagia<br><span class="gradient-text">dengan caramu sendiri.</span></h2>
+          <p class="closing-copy">Semoga usia yang baru membawa lebih banyak alasan untuk tersenyum, keberanian untuk mencoba, dan ketenangan saat hidup sedang tidak mudah.</p>
+          <button class="button button-quiet" id="replayBtn" type="button"><span>Ulangi perjalanan</span><span aria-hidden="true">↺</span></button>
+          <footer class="site-footer"><span>MADE WITH GOOD INTENTIONS</span><span class="footer-symbol">✦</span><span>END CREDITS</span></footer>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"><span class="toast-icon">✧</span><span id="toastMessage">Petunjuk ditemukan.</span></div>
+  <div class="modal-backdrop hidden" id="memoryModal" role="dialog" aria-modal="true" aria-labelledby="memoryModalTitle">
+    <div class="memory-modal"><button class="modal-close" id="closeMemoryModal" type="button" aria-label="Tutup">×</button><div id="modalImageWrap"></div><p class="eyebrow"><span class="eyebrow-line"></span> MEMORY FRAGMENT</p><h3 id="memoryModalTitle">Sebuah kenangan</h3><p id="memoryModalCaption"></p></div>
+  </div>
+  <div class="sr-only" id="liveRegion" aria-live="polite"></div>
+</body>
+</html>
