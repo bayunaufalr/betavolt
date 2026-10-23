@@ -1,5 +1,5 @@
 /*
- * SILENT SIGNAL — personal mystery surprise
+ * PESAN RAHASIA — website teka-teki
  * Personalisasi utama ada di objek CONFIG di bagian paling atas.
  * Website ini berjalan sepenuhnya di browser dan tidak memakai server/database.
  */
@@ -8,10 +8,10 @@ const CONFIG = {
   // Ganti kredensial berikut dengan USER ID dan kata sandi yang kamu berikan kepada penerima.
   // Catatan: login ini hanya gerbang permainan, bukan sistem keamanan sungguhan.
   loginUsername: "V013",
-  loginPassword: "NightSignal18",
-  recipientName: "Kamu yang istimewa", // Ganti dengan nama panggilan temanmu.
-  senderName: "Seseorang yang mendoakanmu", // Ganti dengan namamu atau panggilanmu.
-  birthdayIntro: "Hari ini, semesta punya satu alasan lagi untuk merayakan keberadaanmu.",
+  loginPassword: "kode18",
+  recipientName: "Nama temanmu", // Ganti dengan nama panggilan temanmu.
+  senderName: "Namamu", // Ganti dengan namamu atau panggilanmu.
+  birthdayIntro: "Semoga ulang tahunmu kali ini penuh hal baik dan kenangan menyenangkan.",
   letterGreeting: "Untuk kamu,",
   letterParagraphs: [
     "Selamat ulang tahun! Hari ini bukan cuma tentang bertambahnya usia, tetapi juga tentang semua hal yang sudah kamu lewati untuk sampai di titik ini. Semoga kamu bisa melihat dirimu dengan bangga, termasuk pada hal-hal kecil yang mungkin selama ini kamu anggap biasa saja.",
@@ -25,16 +25,16 @@ const CONFIG = {
     { symbol: "☼", title: "Untuk hari-harimu", text: "Semoga selalu ada hal kecil yang membuatmu tersenyum, bahkan di hari yang tidak berjalan sesuai rencana." }
   ],
   memories: [
-    { title: "Momen yang berkesan", caption: "Satu potongan cerita yang layak disimpan lebih lama.", image: "", label: "MOMENT 01" },
-    { title: "Cerita kecil kita", caption: "Kadang hal sederhana justru menjadi kenangan yang paling hangat.", image: "", label: "MOMENT 02" },
-    { title: "Untuk dikenang", caption: "Semoga masih banyak hal baik yang bisa dirayakan ke depannya.", image: "", label: "MOMENT 03" }
+    { title: "Momen pertama", caption: "Foto yang ingin kamu simpan sebagai kenangan.", image: "", label: "FOTO 01" },
+    { title: "Cerita seru", caption: "Salah satu momen yang menyenangkan untuk diingat.", image: "", label: "FOTO 02" },
+    { title: "Kenangan lainnya", caption: "Semoga masih ada banyak momen baik ke depannya.", image: "", label: "FOTO 03" }
   ]
 };
 
 const PUZZLES = [
   {
     type: "riddle",
-    number: "RINTANGAN 01 / OBSERVASI",
+    number: "TEKA-TEKI 01 / BAYANGAN",
     title: "Aku selalu mengikuti.",
     description: "Petunjuk pertama tidak membutuhkan teknologi canggih. Perhatikan sesuatu yang mungkin pernah kamu lihat setiap hari.",
     question: "Aku muncul saat cahaya hadir. Aku meniru gerakmu tanpa suara, selalu berada dekatmu, tetapi tak pernah bisa disentuh. Saat gelap menyelimuti tempat ini, aku menghilang. Apakah aku?",
@@ -44,8 +44,8 @@ const PUZZLES = [
   },
   {
     type: "cipher",
-    number: "RINTANGAN 02 / DEKRIPSI",
-    title: "Sinyal yang bergeser.",
+    number: "TEKA-TEKI 02 / KODE CAESAR",
+    title: "Kode rahasia.",
     description: "Pesan ini dienkripsi menggunakan Caesar Cipher dengan shift +18: setiap huruf digeser 18 posisi maju dalam alfabet. Untuk memecahkannya, balikkan pergeseran tersebut 18 posisi ke belakang. Alfabet akan berputar kembali setelah Z.",
     question: "DSFBMLCSF",
     placeholder: "Ketik kata yang berhasil dipecahkan...",
@@ -54,8 +54,8 @@ const PUZZLES = [
   },
   {
     type: "riddle",
-    number: "RINTANGAN 03 / BIOLOGI",
-    title: "Penghuni setelah senja.",
+    number: "TEKA-TEKI 03 / TEBAK HEWAN",
+    title: "Tebak hewan.",
     description: "Catatan observasi berikutnya menggambarkan makhluk malam. Perhatikan petunjuk biologinya, bukan hanya waktunya muncul.",
     question: "Aku adalah mamalia yang dapat terbang aktif. Aku sering beristirahat dengan posisi kepala di bawah, aktif pada malam hari, dan menggunakan ekolokasi untuk membantu bernavigasi. Hewan apakah aku?",
     placeholder: "Nama hewannya...",
@@ -64,14 +64,14 @@ const PUZZLES = [
   },
   {
     type: "choice",
-    number: "RINTANGAN 04 / PILIH PINTU",
-    title: "Tiga pintu, tiga respons.",
+    number: "TEKA-TEKI 04 / PILIH PINTU",
+    title: "Pilih satu pintu.",
     description: "Ketiga petunjuk sebelumnya membentuk satu rangkaian. Pilih pintu dengan simbol yang paling selaras dengan jejak yang kamu temukan.",
     question: "Di hadapanmu ada tiga pintu: satu dengan simbol matahari, satu dengan gelombang suara, dan satu dengan siluet sayap di bawah bulan. Pintu mana yang paling tepat untuk melanjutkan perjalanan?",
     choices: [
-      { key: "A", text: "PINTU FAJAR — simbol matahari", correct: false, feedback: "Pintu Fajar memancarkan cahaya yang menyilaukan. Petunjukmu belum mengarah ke siang hari. Coba hubungkan kembali tanda-tanda sebelumnya." },
-      { key: "B", text: "PINTU GEMA — simbol gelombang suara", correct: false, feedback: "Pintu Gema membalas dengan dengungan, tetapi tetap terkunci. Suara memang sebuah petunjuk, namun bukan simbol yang paling lengkap untuk rangkaian ini." },
-      { key: "C", text: "PINTU SENYAP — siluet sayap di bawah bulan", correct: true, feedback: "Pintu Senyap mengenali pola yang kamu ikuti. Simbol sayap dan malam menyatu dengan petunjuk sebelumnya. Jalur terakhir terbuka." }
+      { key: "A", text: "PINTU A — simbol matahari", correct: false, feedback: "Pintu A belum tepat. Coba hubungkan lagi petunjuk dari teka-teki sebelumnya." },
+      { key: "B", text: "PINTU B — simbol gelombang suara", correct: false, feedback: "Pintu B belum tepat. Perhatikan kembali jawaban teka-teki ketiga." },
+      { key: "C", text: "PINTU C — simbol sayap", correct: true, feedback: "Benar. Simbol sayap cocok dengan jawaban teka-teki sebelumnya. Pintu terbuka." }
     ],
     hint: "Petunjuk: ingat jawaban teka-teki ketiga. Pilih lambang yang paling dekat dengan hewan yang kamu identifikasi."
   }
@@ -167,7 +167,7 @@ function verifyCredentials(event) {
   if (username === expectedUsername && password === expectedPassword) {
     errorMessage.classList.add("hidden");
     $("#loginForm").classList.remove("shake");
-    statusText.textContent = "IDENTITY VERIFIED";
+    statusText.textContent = "IDENTITAS TERVERIFIKASI";
     $("#passwordInput").value = "";
     $("#passwordInput").type = "password";
     $("#togglePasswordBtn").textContent = "LIHAT";
@@ -175,7 +175,7 @@ function verifyCredentials(event) {
     $("#togglePasswordBtn").setAttribute("aria-pressed", "false");
     showScreen(landingView);
     playTone(620, 0.1, 0.03);
-    showToast("Kredensial diterima. Identitas SUBJECT V-013 terkonfirmasi.");
+    showToast("Login berhasil. ID V013 terverifikasi.");
   } else {
     errorMessage.classList.remove("hidden");
     const form = $("#loginForm");
@@ -201,7 +201,7 @@ function togglePasswordVisibility() {
 function startJourney() {
   state.stage = 0;
   state.busy = false;
-  statusText.textContent = "ENCRYPTED CHANNEL OPEN";
+  statusText.textContent = "PERMAINAN DIMULAI";
   updateProgress(0);
   renderPuzzle();
   showScreen(gameView);
@@ -216,7 +216,7 @@ function renderPuzzle() {
     <p class="puzzle-number">${escapeHTML(puzzle.number)}</p>
     <h3 class="puzzle-title">${escapeHTML(puzzle.title)}</h3>
     <p class="puzzle-description">${escapeHTML(puzzle.description)}</p>
-    ${puzzle.type === "cipher" ? `<div class="riddle-quote cipher-quote" aria-label="Kode rahasia"><span class="cipher-prefix">DECODE //</span><br><strong>${escapeHTML(puzzle.question)}</strong><span class="cipher-caption">CAESAR SHIFT · +18 ENCRYPTION</span></div>` : `<blockquote class="riddle-quote">${escapeHTML(puzzle.question)}</blockquote>`}
+    ${puzzle.type === "cipher" ? `<div class="riddle-quote cipher-quote" aria-label="Kode rahasia"><span class="cipher-prefix">KODE //</span><br><strong>${escapeHTML(puzzle.question)}</strong><span class="cipher-caption">CAESAR SHIFT · +18</span></div>` : `<blockquote class="riddle-quote">${escapeHTML(puzzle.question)}</blockquote>`}
     ${puzzle.type === "choice" ? renderChoices(puzzle) : renderAnswerForm(puzzle)}
     <div class="hint-row"><button class="hint-button" id="hintBtn" type="button"><span aria-hidden="true">✦</span> Minta satu petunjuk</button><p class="hint-text hidden" id="hintText">${escapeHTML(puzzle.hint)}</p></div>
   `;
@@ -258,7 +258,7 @@ function checkTextAnswer() {
   if (!input) return;
   const answer = normalizeAnswer(input.value);
   if (!answer) {
-    showToast("Isi jawabanmu dulu. Sinyalnya belum bisa membaca pikiran.");
+    showToast("Isi jawabanmu terlebih dahulu.");
     input.focus();
     return;
   }
@@ -309,10 +309,10 @@ function completeStage(customMessage = "") {
   if (state.busy) return;
   state.busy = true;
   const stageMessages = [
-    "Jejak pertama ditemukan. Sinyal makin jelas.",
-    "Dekripsi berhasil. Pesan LANJUTKAN telah terbaca.",
-    "Identifikasi cocok. Catatan makhluk malam berhasil diverifikasi.",
-    "Pintu yang tepat merespons. Jalur terakhir terbuka."
+    "Benar, teka-teki pertama selesai.",
+    "Kode berhasil dipecahkan.",
+    "Jawabanmu benar. Lanjut ke teka-teki berikutnya.",
+    "Kamu memilih pintu yang benar."
   ];
   showToast(customMessage || stageMessages[state.stage] || "Tahap berhasil diselesaikan.");
   playTone(660, 0.08, 0.035);
@@ -324,7 +324,7 @@ function completeStage(customMessage = "") {
       renderPuzzle();
     } else {
       updateProgress(PUZZLES.length);
-      statusText.textContent = "FINAL SIGNAL FOUND";
+      statusText.textContent = "PESAN DITEMUKAN";
       showScreen(vaultView);
       playTone(780, 0.12, 0.03);
     }
@@ -337,7 +337,7 @@ function updateProgress(completedCount) {
   $("#progressBar").style.width = `${percent}%`;
   $("#progressPercent").textContent = `${String(percent).padStart(2, "0")}%`;
   const currentNumber = Math.min(completedCount + 1, total);
-  $("#progressLabel").textContent = completedCount >= total ? "SEMUA RINTANGAN SELESAI" : `RINTANGAN ${String(currentNumber).padStart(2, "0")} / 0${total}`;
+  $("#progressLabel").textContent = completedCount >= total ? "SEMUA TEKA-TEKI SELESAI" : `TEKA-TEKI ${String(currentNumber).padStart(2, "0")} / 0${total}`;
   $$(".step-dot").forEach((dot, index) => {
     dot.classList.toggle("active", index === Math.min(completedCount, total - 1) && completedCount < total);
     dot.classList.toggle("complete", index < completedCount);
@@ -346,8 +346,8 @@ function updateProgress(completedCount) {
 
 function revealBirthday() {
   showScreen(birthdayView);
-  document.title = `Selamat Ulang Tahun, ${CONFIG.recipientName} — Silent Signal`;
-  statusText.textContent = "MESSAGE DELIVERED";
+  document.title = `Selamat Ulang Tahun, ${CONFIG.recipientName} — Pesan Rahasia`;
+  statusText.textContent = "PESAN DIBUKA";
   renderPersonalContent();
   launchConfetti(170);
   playTone(523, 0.12, 0.03);
@@ -363,7 +363,7 @@ function openGift() {
   }
   state.giftOpened = true;
   giftScene.classList.add("opened");
-  $("#giftHint").textContent = "ADA DOA BAIK DI DALAMNYA";
+  $("#giftHint").textContent = "ADA PESAN UNTUKMU";
   launchConfetti(75);
   playTone(720, 0.13, 0.025);
 }
@@ -480,9 +480,9 @@ function replayJourney() {
   state.busy = false;
   state.giftOpened = false;
   $("#giftScene").classList.remove("opened");
-  $("#giftHint").textContent = "KETUK HADIAHNYA";
-  document.title = "Silent Signal — Pesan Tersembunyi";
-  statusText.textContent = "ACCESS CONTROL ACTIVE";
+  $("#giftHint").textContent = "KETUK KOTAK HADIAH";
+  document.title = "Pesan Rahasia";
+  statusText.textContent = "MENUNGGU LOGIN";
   $("#loginForm").reset();
   $("#loginError").classList.add("hidden");
   $("#passwordInput").type = "password";

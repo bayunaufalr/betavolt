@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080b16">
   <meta name="description" content="Sebuah pesan rahasia menunggu untuk ditemukan.">
-  <title>Silent Signal — Pesan Tersembunyi</title>
+  <title>Pesan Rahasia</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
@@ -16,31 +16,31 @@
   <canvas id="confettiCanvas" aria-hidden="true"></canvas>
 
   <header class="topbar">
-    <a class="brand" href="#top" aria-label="Silent Signal, kembali ke atas">
-      <span class="brand-mark">S<span>.</span></span>
-      <span class="brand-name">SILENT SIGNAL <small>PERSONAL TRANSMISSION</small></span>
+    <a class="brand" href="#top" aria-label="Pesan Rahasia, kembali ke atas">
+      <span class="brand-mark">P<span>.</span></span>
+      <span class="brand-name">PESAN RAHASIA <small>UNTUKMU</small></span>
     </a>
-    <div class="system-status"><span class="status-dot"></span><span id="systemStatus">ACCESS CONTROL ACTIVE</span></div>
+    <div class="system-status"><span class="status-dot"></span><span id="systemStatus">MENUNGGU LOGIN</span></div>
   </header>
 
   <main id="top">
     <section class="screen login-screen" id="loginView" aria-labelledby="loginTitle">
       <div class="login-panel">
-        <p class="eyebrow"><span class="eyebrow-line"></span> SECURE GATE <span class="eyebrow-muted">/ ACCESS REQUIRED</span></p>
+        <p class="eyebrow"><span class="eyebrow-line"></span> LOGIN <span class="eyebrow-muted">/ MASUKKAN KODE</span></p>
         <h1 class="login-title" id="loginTitle">Verifikasi<br><span class="gradient-text">identitas.</span></h1>
-        <p class="hero-description login-description">Sesi ini hanya tersedia untuk penerima kredensial. Masukkan USER ID dan ACCESS KEY yang sudah diberikan untuk melanjutkan.</p>
+        <p class="hero-description login-description">Masukkan nama pengguna dan kata sandi yang sudah diberikan untuk membuka halaman ini.</p>
         <form class="login-form" id="loginForm" autocomplete="off">
-          <label class="login-label" for="usernameInput">USER ID</label>
-          <input class="login-input" id="usernameInput" name="username" type="text" placeholder="Masukkan user ID" autocomplete="off" autocapitalize="none" spellcheck="false" required>
-          <label class="login-label" for="passwordInput">ACCESS KEY</label>
+          <label class="login-label" for="usernameInput">NAMA PENGGUNA</label>
+          <input class="login-input" id="usernameInput" name="username" type="text" placeholder="Masukkan nama pengguna" autocomplete="off" autocapitalize="none" spellcheck="false" required>
+          <label class="login-label" for="passwordInput">KATA SANDI</label>
           <div class="password-field">
-            <input class="login-input" id="passwordInput" name="password" type="password" placeholder="Masukkan access key" autocomplete="off" required>
+            <input class="login-input" id="passwordInput" name="password" type="password" placeholder="Masukkan kata sandi" autocomplete="off" required>
             <button class="password-toggle" id="togglePasswordBtn" type="button" aria-label="Tampilkan kata sandi" aria-pressed="false">LIHAT</button>
           </div>
-          <p class="login-error hidden" id="loginError" role="alert">Kredensial tidak cocok. Periksa kembali USER ID dan ACCESS KEY.</p>
-          <button class="button button-primary login-submit" type="submit"><span>Verifikasi identitas</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+          <p class="login-error hidden" id="loginError" role="alert">Nama pengguna atau kata sandi salah. Coba periksa lagi.</p>
+          <button class="button button-primary login-submit" type="submit"><span>Masuk</span><span class="button-arrow" aria-hidden="true">↗</span></button>
         </form>
-        <p class="login-footnote"><span class="tiny-lock" aria-hidden="true">◇</span> AUTHORIZED PERSONNEL ONLY</p>
+        <p class="login-footnote"><span class="tiny-lock" aria-hidden="true">◇</span> MASUK UNTUK MELANJUTKAN</p>
       </div>
 
       <div class="login-side-art" aria-hidden="true">
@@ -51,25 +51,25 @@
         <div class="login-orbit-dot login-orbit-dot-a"></div>
         <div class="login-orbit-dot login-orbit-dot-b"></div>
         <div class="login-emblem"><span>V</span><i>013</i></div>
-        <div class="login-art-caption"><span>SUBJECT V-013</span><small>IDENTITY PENDING</small></div>
-        <div class="login-art-corner login-art-corner-a">ENCRYPTED<br>CHANNEL</div>
-        <div class="login-art-corner login-art-corner-b">AUTH // 01</div>
+        <div class="login-art-caption"><span>ID V013</span><small>BELUM AKTIF</small></div>
+        <div class="login-art-corner login-art-corner-a">PESAN<br>RAHASIA</div>
+        <div class="login-art-corner login-art-corner-b">LOGIN // 01</div>
       </div>
-      <div class="login-footer"><span>SECURE ACCESS PROTOCOL</span><span>SESSION 01 / PRIVATE CHANNEL</span></div>
+      <div class="login-footer"><span>AKSES KHUSUS</span><span>SESI 01</span></div>
     </section>
 
     <section class="screen landing-screen hidden" id="landingView" aria-labelledby="landingTitle">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="eyebrow-line"></span> IDENTITY VERIFIED <span class="eyebrow-muted">/ ACCESS GRANTED</span></p>
-        <h1 id="landingTitle">Identitas telah<br><span class="gradient-text">terkonfirmasi.</span></h1>
-        <p class="hero-description">Kredensial diterima. SUBJECT V-013 telah terautentikasi. Empat rintangan kini aktif. Selesaikan setiap tahap untuk membuka kanal berikutnya.</p>
+        <p class="eyebrow"><span class="eyebrow-line"></span> IDENTITAS TERVERIFIKASI <span class="eyebrow-muted">/ LOGIN BERHASIL</span></p>
+        <h1 id="landingTitle">Identitas sudah<br><span class="gradient-text">terverifikasi.</span></h1>
+        <p class="hero-description">Login berhasil. ID V013 sudah terverifikasi. Selesaikan empat teka-teki untuk membuka pesan berikutnya.</p>
         <div class="hero-actions">
-          <button class="button button-primary" id="beginBtn" type="button"><span>Jalankan protokol</span><span class="button-arrow" aria-hidden="true">↗</span></button>
-          <div class="micro-note"><span class="tiny-lock" aria-hidden="true">◇</span> 4 RINTANGAN <span class="micro-divider">/</span> 1 PESAN TERKUNCI</div>
+          <button class="button button-primary" id="beginBtn" type="button"><span>Mulai permainan</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+          <div class="micro-note"><span class="tiny-lock" aria-hidden="true">◇</span> 4 TEKA-TEKI <span class="micro-divider">/</span> 1 PESAN</div>
         </div>
       </div>
 
-      <div class="signal-art" aria-label="Ilustrasi sinyal misterius">
+      <div class="signal-art" aria-label="Ilustrasi pesan">
         <div class="orbit orbit-outer"></div>
         <div class="orbit orbit-middle"></div>
         <div class="orbit orbit-inner"></div>
@@ -77,42 +77,42 @@
         <div class="orbit-node node-two"></div>
         <div class="orbit-node node-three"></div>
         <div class="signal-core"><div class="core-inner"><span class="core-glyph">?</span></div></div>
-        <div class="signal-label label-top">UNKNOWN SOURCE <span>●</span></div>
-        <div class="signal-label label-bottom">SIGNAL DETECTED <span>•••</span></div>
-        <div class="signal-coordinates">SUBJECT V-013<br>STATUS: VERIFIED</div>
+        <div class="signal-label label-top">PESAN MASUK <span>●</span></div>
+        <div class="signal-label label-bottom">ADA PESAN <span>•••</span></div>
+        <div class="signal-coordinates">ID V013<br>STATUS: AKTIF</div>
       </div>
-      <div class="landing-footer"><span>PRIVATE QUEST // NO SPOILERS</span><span class="scroll-cue">SCROLL TO EXPLORE <span>↓</span></span><span>EST. UNKNOWN</span></div>
+      <div class="landing-footer"><span>PERMAINAN RAHASIA</span><span class="scroll-cue">GULIR UNTUK LANJUT <span>↓</span></span><span>PESAN 01</span></div>
     </section>
 
     <section class="screen game-screen hidden" id="gameView" aria-labelledby="gameTitle">
       <div class="section-heading">
-        <p class="eyebrow"><span class="eyebrow-line"></span> ENCRYPTED JOURNEY</p>
-        <h2 id="gameTitle">Ikuti jejaknya<span class="gradient-text">.</span></h2>
-        <p class="section-description">Setiap jawaban membuka potongan jalan berikutnya. Perhatikan detailnya.</p>
+        <p class="eyebrow"><span class="eyebrow-line"></span> TEKA-TEKI</p>
+        <h2 id="gameTitle">Selesaikan teka-tekinya<span class="gradient-text">.</span></h2>
+        <p class="section-description">Jawab setiap pertanyaan untuk lanjut ke tahap berikutnya. Perhatikan petunjuknya.</p>
       </div>
 
       <div class="progress-wrap" aria-label="Kemajuan permainan">
-        <div class="progress-meta"><span id="progressLabel">RINTANGAN 01 / 04</span><span id="progressPercent">00%</span></div>
+        <div class="progress-meta"><span id="progressLabel">TEKA-TEKI 01 / 04</span><span id="progressPercent">00%</span></div>
         <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
         <div class="progress-steps"><span class="step-dot active" data-step="0">01</span><span class="step-connector"></span><span class="step-dot" data-step="1">02</span><span class="step-connector"></span><span class="step-dot" data-step="2">03</span><span class="step-connector"></span><span class="step-dot" data-step="3">04</span></div>
       </div>
 
       <article class="puzzle-card" id="puzzleCard" aria-live="polite"></article>
-      <p class="game-footnote"><span class="footnote-sparkle">✦</span> Tidak perlu terburu-buru. Petunjuk selalu ada di sekitar pertanyaan.</p>
+      <p class="game-footnote"><span class="footnote-sparkle">✦</span> Santai saja. Gunakan petunjuk jika diperlukan.</p>
     </section>
 
     <section class="screen vault-screen hidden" id="vaultView" aria-labelledby="vaultTitle">
       <div class="vault-emblem" aria-hidden="true"><span>✧</span></div>
-      <p class="eyebrow centered"><span class="eyebrow-line"></span> ALL SIGNALS ALIGNED <span class="eyebrow-line"></span></p>
+      <p class="eyebrow centered"><span class="eyebrow-line"></span> SEMUA TEKA-TEKI SELESAI <span class="eyebrow-line"></span></p>
       <h2 id="vaultTitle">Jejaknya sudah lengkap<span class="gradient-text">.</span></h2>
-      <p class="vault-copy">Kamu berhasil melewati semua rintangan. Ada satu pesan terakhir yang belum dibuka. Sepertinya, pesan ini memang menunggu orang yang tepat untuk menemukannya.</p>
+      <p class="vault-copy">Semua teka-teki sudah selesai. Ada satu pesan yang masih terkunci. Buka untuk melihat isinya.</p>
       <div class="vault-lock"><span class="vault-lock-top"></span><span class="vault-lock-body">✦</span></div>
-      <button class="button button-primary" id="openVaultBtn" type="button"><span>Buka transmisi terakhir</span><span class="button-arrow" aria-hidden="true">↗</span></button>
-      <p class="vault-caption">FINAL ENCRYPTION // READY TO DECODE</p>
+      <button class="button button-primary" id="openVaultBtn" type="button"><span>Buka pesan</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+      <p class="vault-caption">PESAN TERAKHIR</p>
     </section>
 
     <section class="screen birthday-screen hidden" id="birthdayView" aria-labelledby="birthdayTitle">
-      <div class="reveal-topline"><span>TRANSMISSION DECRYPTED</span><span class="reveal-topline-dot"></span><span>MESSAGE FOUND</span></div>
+      <div class="reveal-topline"><span>PESAN DIBUKA</span><span class="reveal-topline-dot"></span><span>UNTUKMU</span></div>
       <div class="birthday-hero">
         <div class="gift-scene" id="giftScene">
           <div class="gift-glow"></div>
@@ -121,38 +121,38 @@
             <span class="gift-lid"><span class="gift-bow"></span></span>
             <span class="gift-body"><span class="gift-ribbon"></span><span class="gift-ribbon-vertical"></span></span>
           </button>
-          <p class="gift-hint" id="giftHint">KETUK HADIAHNYA</p>
+          <p class="gift-hint" id="giftHint">KETUK KOTAK HADIAH</p>
         </div>
-        <p class="eyebrow centered"><span class="eyebrow-line"></span> THE SECRET WAS YOU <span class="eyebrow-line"></span></p>
-        <p class="reveal-pretitle" id="revealPretitle">Untuk seseorang yang istimewa</p>
+        <p class="eyebrow centered"><span class="eyebrow-line"></span> PESAN UNTUKMU <span class="eyebrow-line"></span></p>
+        <p class="reveal-pretitle" id="revealPretitle">Untuk kamu</p>
         <h1 id="birthdayTitle">Selamat ulang<br><span class="gradient-text">tahun.</span></h1>
         <p class="birthday-intro" id="birthdayIntro">Hari ini, semesta punya satu alasan lagi untuk merayakan keberadaanmu.</p>
-        <button class="button button-primary" id="readLetterBtn" type="button"><span>Baca pesan rahasia</span><span class="button-arrow" aria-hidden="true">↓</span></button>
+        <button class="button button-primary" id="readLetterBtn" type="button"><span>Baca pesan</span><span class="button-arrow" aria-hidden="true">↓</span></button>
       </div>
 
       <div class="birthday-content" id="birthdayContent">
         <div class="content-divider"><span></span><span class="divider-star">✧</span><span></span></div>
         <section class="letter-section" aria-labelledby="letterTitle">
-          <p class="eyebrow"><span class="eyebrow-line"></span> A NOTE FOR YOU</p>
+          <p class="eyebrow"><span class="eyebrow-line"></span> PESAN UNTUKMU</p>
           <h2 id="letterTitle">Ada hal yang ingin<br>aku <span class="gradient-text">sampaikan.</span></h2>
           <div class="letter-card">
-            <div class="letter-card-top"><span>PERSONAL LETTER</span><span>01 / 01</span></div>
+            <div class="letter-card-top"><span>SURAT UNTUKMU</span><span>01 / 01</span></div>
             <p class="letter-greeting" id="letterGreeting">Untuk kamu,</p>
             <div class="letter-body" id="letterBody"></div>
-            <div class="letter-signature"><span>Dengan doa baik,</span><strong id="senderName">Seseorang yang mendoakanmu</strong></div>
-            <div class="letter-watermark" aria-hidden="true">S.</div>
+            <div class="letter-signature"><span>Dengan doa baik,</span><strong id="senderName">Namamu</strong></div>
+            <div class="letter-watermark" aria-hidden="true">P.</div>
           </div>
         </section>
 
         <section class="wish-section" aria-labelledby="wishTitle">
-          <p class="eyebrow"><span class="eyebrow-line"></span> THREE LITTLE WISHES</p>
+          <p class="eyebrow"><span class="eyebrow-line"></span> DOA DAN HARAPAN</p>
           <h2 id="wishTitle">Semoga hal-hal baik<br><span class="gradient-text">menemukanmu.</span></h2>
           <div class="wish-grid" id="wishGrid"></div>
         </section>
 
         <section class="memory-section" aria-labelledby="memoryTitle">
           <div class="memory-heading">
-            <div><p class="eyebrow"><span class="eyebrow-line"></span> FRAGMENTS OF JOY</p><h2 id="memoryTitle">Potongan <span class="gradient-text">kenangan.</span></h2></div>
+            <div><p class="eyebrow"><span class="eyebrow-line"></span> FOTO DAN KENANGAN</p><h2 id="memoryTitle">Potongan <span class="gradient-text">kenangan.</span></h2></div>
             <p class="memory-side-note">Beberapa momen kecil<br>yang pantas disimpan.</p>
           </div>
           <div class="memory-grid" id="memoryGrid"></div>
@@ -161,11 +161,11 @@
 
         <section class="closing-section">
           <div class="closing-star" aria-hidden="true">✧</div>
-          <p class="eyebrow centered">END OF TRANSMISSION</p>
+          <p class="eyebrow centered">SELESAI</p>
           <h2>Jangan lupa bahagia<br><span class="gradient-text">dengan caramu sendiri.</span></h2>
           <p class="closing-copy">Semoga usia yang baru membawa lebih banyak alasan untuk tersenyum, keberanian untuk mencoba, dan ketenangan saat hidup sedang tidak mudah.</p>
           <button class="button button-quiet" id="replayBtn" type="button"><span>Ulangi perjalanan</span><span aria-hidden="true">↺</span></button>
-          <footer class="site-footer"><span>MADE WITH GOOD INTENTIONS</span><span class="footer-symbol">✦</span><span>END CREDITS</span></footer>
+          <footer class="site-footer"><span>DIBUAT DENGAN TULUS</span><span class="footer-symbol">✦</span><span>SELESAI</span></footer>
         </section>
       </div>
     </section>
@@ -173,7 +173,7 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"><span class="toast-icon">✧</span><span id="toastMessage">Petunjuk ditemukan.</span></div>
   <div class="modal-backdrop hidden" id="memoryModal" role="dialog" aria-modal="true" aria-labelledby="memoryModalTitle">
-    <div class="memory-modal"><button class="modal-close" id="closeMemoryModal" type="button" aria-label="Tutup">×</button><div id="modalImageWrap"></div><p class="eyebrow"><span class="eyebrow-line"></span> MEMORY FRAGMENT</p><h3 id="memoryModalTitle">Sebuah kenangan</h3><p id="memoryModalCaption"></p></div>
+    <div class="memory-modal"><button class="modal-close" id="closeMemoryModal" type="button" aria-label="Tutup">×</button><div id="modalImageWrap"></div><p class="eyebrow"><span class="eyebrow-line"></span> KENANGAN</p><h3 id="memoryModalTitle">Sebuah kenangan</h3><p id="memoryModalCaption"></p></div>
   </div>
   <div class="sr-only" id="liveRegion" aria-live="polite"></div>
 </body>
